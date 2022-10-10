@@ -26,19 +26,19 @@ public String hello(@RequestParam(value = "name", defaultValue = "World") String
 return String.format("Hello %s!", name);
 }
 
-@GetMapping("/Json") //// getting json string where id in args
+@GetMapping("/Json") //// getting json string where id in args try:"http://localhost:8080/Json?id=1"
 public String Json(@RequestParam(value = "id", defaultValue = "2") String id) {
 
-String example3 = "{ id: 1 ,"+
+String example1 = "{ id: 1 ,"+
 "content:Annamalai!";
 
-String example4 = "{ id: 2 ,"+
+String example2 = "{ id: 2 ,"+
 "content:Mikael!}";
 JsonObject x = new JsonObject();
 
-x.addProperty("1", example3);
-x.addProperty("2", example4);
-return String.format("Json %s!", x.getAsJsonPrimitive(id));
+x.addProperty("1", example1);
+x.addProperty("2", example2);
+return String.format("Json %s!", x.getAsJsonPrimitive(id)); //default value is 2
 }
 
 
